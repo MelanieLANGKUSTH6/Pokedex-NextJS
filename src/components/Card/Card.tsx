@@ -1,4 +1,5 @@
 import { Pokemon } from '@/@types/pokemon';
+import Link from 'next/link';
 
 interface CardProps{
   pokemon: Pokemon;
@@ -6,7 +7,7 @@ interface CardProps{
 
 function Card({ pokemon }: CardProps) {
   return (
-    <div className="bg-cyan-900 rounded-lg shadow-lg p-4 flex flex-col w-full hover:bg-cyan-800">
+    <Link href={`/pokemon/${pokemon.name.fr}`} className="bg-cyan-900 rounded-lg shadow-lg p-4 flex flex-col w-full hover:bg-cyan-800">
       <img
         src={pokemon.sprites.shiny || pokemon.sprites.regular}
         alt={pokemon.name.fr}
@@ -27,7 +28,7 @@ function Card({ pokemon }: CardProps) {
           </span>
         ))}
       </p>
-    </div>
+    </Link>
   );
 }
 
